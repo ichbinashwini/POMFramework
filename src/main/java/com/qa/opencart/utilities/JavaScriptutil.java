@@ -1,5 +1,6 @@
 package com.qa.opencart.utilities;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,7 @@ public class JavaScriptutil {
 	public JavaScriptutil(WebDriver driver) {
 		this.driver = driver;
 		js = (JavascriptExecutor) driver;
+		
 	}
 
 	public void flash(WebElement element) {
@@ -37,5 +39,25 @@ public class JavaScriptutil {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0, 0);");
 	}
+	/*
+	 * // 1️⃣ Handling a simple alert (OK button)
+	 * driver.findElement(By.xpath("//button[text()='Click for JS Alert']")).click()
+	 * ; Alert simpleAlert = driver.switchTo().alert();
+	 * System.out.println("Alert Text: " + simpleAlert.getText());
+	 * simpleAlert.accept(); // Clicks OK Thread.sleep(1000);
+	 * 
+	 * // 2️⃣ Handling a confirmation alert (OK / Cancel)
+	 * driver.findElement(By.xpath("//button[text()='Click for JS Confirm']")).click
+	 * (); Alert confirmAlert = driver.switchTo().alert();
+	 * System.out.println("Confirm Text: " + confirmAlert.getText());
+	 * confirmAlert.dismiss(); // Clicks Cancel Thread.sleep(1000);
+	 * 
+	 * // 3️⃣ Handling a prompt alert (input + OK / Cancel)
+	 * driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click(
+	 * ); Alert promptAlert = driver.switchTo().alert();
+	 * System.out.println("Prompt Text: " + promptAlert.getText());
+	 * promptAlert.sendKeys("Selenium Test"); // Enter text promptAlert.accept(); //
+	 * Click OK Thread.sleep(1000);
+	 */
 
 }

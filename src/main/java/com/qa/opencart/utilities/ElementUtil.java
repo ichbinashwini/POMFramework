@@ -21,6 +21,8 @@ import com.qa.opencart.exceptions.ElementException;
 import com.qa.opencart.exceptions.FrameWorkException;
 import com.qa.opencart.factory.DriverFactory;
 
+import io.qameta.allure.Step;
+
 public class ElementUtil {
 
 	private WebDriver driver;
@@ -112,6 +114,7 @@ public class ElementUtil {
 
 	}
 
+	@Step("This is searching from the prediction list")
 	public void doSearch(By searchTextArea, By predictoinList, String searchKey, String clickSearch)
 			throws InterruptedException {
 
