@@ -33,21 +33,21 @@ public class SearchResultPageTest extends BaseTest {
 	
 	
 
-//	@DataProvider(name = "quantityData")
-//	public Object[][] getproductQuantityinCartData() {
-//		return new Object[][] { { "MacBook", "MacBook", 1 },{ "iphone", "iPhone", 1 },
-//				//{ "canon", "Canon EOS 5D", 1 }
-//			};
-//
-//	}
-//
-//	@Test (dataProvider = "quantityData")
-//	public void productQuantityinCartTest(String searchKey, String productName, int cartQuantity) {
-//		searchResultPage = accountPage.doSearchProduct(searchKey);
-//		productInfoPage = searchResultPage.selectProduct(productName);
-//		String quantity = productInfoPage.productQuantityinCart();
-//		int acqualQuantity = Integer.parseInt(quantity);
-//		Assert.assertEquals(acqualQuantity, cartQuantity);
-//	}
+	@DataProvider(name = "quantityData")
+	public Object[][] getproductQuantityinCartData() {
+		return new Object[][] { { "MacBook", "MacBook", 1 },{ "iphone", "iPhone", 1 },
+				//{ "canon", "Canon EOS 5D", 1 }
+			};
+
+	}
+
+	@Test (dataProvider = "quantityData")
+	public void productQuantityinCartTest(String searchKey, String productName, int cartQuantity) {
+		searchResultPage = accountPage.doSearchProduct(searchKey);
+		productInfoPage = searchResultPage.selectProduct(productName);
+		String quantity = productInfoPage.productQuantityinCart();
+		int acqualQuantity = Integer.parseInt(quantity);
+		Assert.assertEquals(acqualQuantity, cartQuantity);
+	}
 
 }

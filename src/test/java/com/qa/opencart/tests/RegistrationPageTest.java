@@ -19,11 +19,17 @@ public class RegistrationPageTest extends BaseTest {
 	}
 
 	@Test
-	public void registrationPageTitleTest() {
-		String actualPageTitle = registrationPage.getRegistrationPageTitle();
-		Assert.assertEquals(actualPageTitle, "Register Account");
+	public void verifyRegistrationPageTtile() {
+		String actualTitle = registrationPage.getRegistrationPageTitle();
+		Assert.assertEquals(actualTitle, "Register Account");
 	}
-
+	
+	@Test
+	public void verifyRegistrationPageURL() {
+		String actualURL =registrationPage.getRegistratinPageURL();
+		Assert.assertEquals(actualURL, "https://naveenautomationlabs.com/opencart/index.php?route=account/register");
+	}
+	
 	@DataProvider
 	public Object[][] registrationData() {
 		return new Object[][] {
