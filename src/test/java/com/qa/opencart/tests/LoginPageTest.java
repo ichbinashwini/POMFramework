@@ -59,7 +59,7 @@ public class LoginPageTest extends BaseTest {
 	public void doLoginTest(){
 		accountPage = loginPage.doLogin(prop.getProperty("userName"), prop.getProperty("password"));
 		String actualTitle = accountPage.accountPageTitle();
-		Assert.assertEquals(actualTitle, "My Account11");
+		Assert.assertEquals(actualTitle, "My Account");
 		log.info("Login page title is correct"+ actualTitle);
 	}
 
