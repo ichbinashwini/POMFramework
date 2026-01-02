@@ -24,6 +24,7 @@ public class LoginPage {
 	final By forgotPasswordLink = By.linkText("Forgotten Password");
 	final By registrationLInk = By.linkText("Register");
 	private final By loginErrorMessg = By.cssSelector("div.alert.alert-danger.alert-dismissible");
+	private By newCustomerHeader = By.xpath("//h2[starts-with(text(),'New')]");
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -69,6 +70,17 @@ public class LoginPage {
 
 	}
 	
+	public boolean isNewCustomerHeaderExists() {
+		
+		try {
+			driver.findElement(newCustomerHeader).isDisplayed();
+			return true;
+		}catch(NoSuchElementException e) {
+			return false;
+		}
+		
+	}
+	
 	@Step("login with in-correct username: {0} and password: {1}")
 	public boolean doLoginWithInvalidCredentails(String invalidUN, String invalidPWD) {
 		log.info("Invalid application credentials: " + invalidUN + " : " + invalidPWD);
@@ -88,12 +100,14 @@ public class LoginPage {
 		return false;
 	}
 	
-	@Step("Navigetting to regidtration page...")
+	@Step("Navigating to registration page...")
 	public RegistrationPage navigateToRegistration() {
 		eUtil.doClick(registrationLInk);
 		return new RegistrationPage(driver);
 		
 	}
+	
+	
 
 	
 	

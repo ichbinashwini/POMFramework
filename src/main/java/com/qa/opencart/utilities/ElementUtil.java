@@ -12,6 +12,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -229,7 +230,7 @@ public class ElementUtil {
 		try {
 
 			wait.until(ExpectedConditions.titleContains(title));
-			Thread.sleep(3000);
+			//Thread.sleep(3000);
 			return driver.getTitle();
 		} catch (TimeoutException e) {
 			System.out.println("Title found is " + driver.getTitle());
@@ -238,12 +239,24 @@ public class ElementUtil {
 
 		}
 	}
+	
+	
+	public void clickElementWhenReady(By locator, int sec) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(sec));
+		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+		wait.pollingEvery( Duration.ofSeconds(sec));
+	}
+	
+	  
+	
 
 	// *********************** Fluent Wait methods ******************************
 
 	public WebElement waitForElementVisibilityWithFW(By locator, int duration, int pollingTime) {
-		FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(duration))
-				.pollingEvery(Duration.ofSeconds(pollingTime)).ignoring(NoSuchElementException.class)
+		FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(duration))
+				.pollingEvery(Duration.ofSeconds(pollingTime))
+				.ignoring(NoSuchElementException.class)
 				.withMessage("======== ELEMENT NOT FOUND ON PAGE=======");
 
 		return fluentWait.until(ExpectedConditions.visibilityOfElementLocated(locator));

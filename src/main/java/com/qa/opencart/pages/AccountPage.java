@@ -16,7 +16,7 @@ public class AccountPage {
 
 	private By headers = By.tagName("h2");
 	private By searchInputField = By.cssSelector("input[name='search']");
-	private By searchIcon = By.xpath("//div[@id='search']//button");
+	private By searchIcon = By.xpath("//div[@id ='search']//button[@type='button']");
 
 	public AccountPage(WebDriver driver) {
 		this.driver = driver;
@@ -40,16 +40,44 @@ public class AccountPage {
 		return headerList;
 	}
 	
+	
 	public SearchResultPage doSearchProduct(String searchKey) {
-		System.out.println("Searched product is --> "+ searchKey);
-		WebElement searchEle = eUtil.WaitForElementVisibility(searchInputField, AppConstants.DEFAULT_SHORT_WAIT);
-		searchEle.clear();
 		eUtil.doSendKeys(searchInputField, searchKey);
 		eUtil.doClick(searchIcon);
-		System.out.println("This is "+ searchKey +"search page title "+ eUtil.getPageTitle());
 		return new SearchResultPage(driver);
 		
+
+		
+		
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	public SearchResultPage doSearchProduct(String searchKey) {
+//		System.out.println("Searched product is --> "+ searchKey);
+//		WebElement searchEle = eUtil.WaitForElementVisibility(searchInputField, AppConstants.DEFAULT_SHORT_WAIT);
+//		searchEle.clear();
+//		eUtil.doSendKeys(searchInputField, searchKey);
+//		eUtil.doClick(searchIcon);
+//		System.out.println("This is "+ searchKey +"search page title "+ eUtil.getPageTitle());
+//		return new SearchResultPage(driver);
+//		
+//	}
 	
 	
 	

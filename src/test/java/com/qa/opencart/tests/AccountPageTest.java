@@ -22,7 +22,6 @@ public class AccountPageTest extends BaseTest {
 	public void accountPageTitleTest() {
 		String actualAccountPageTitle = accountPage.accountPageTitle();
 		Assert.assertEquals(actualAccountPageTitle, "My Account");
-
 	}
 
 	@Test
@@ -30,6 +29,7 @@ public class AccountPageTest extends BaseTest {
 		List<String> actualHeadersList = accountPage.accountPageMainHeaders();
 		Assert.assertEquals(actualHeadersList, AppConstants.EXPECTED_ACCCOUNT_PAGE_HEADERS_lIST);
 	}
+	
 	
 	@Test
 	public void doSearchProductTest() throws InterruptedException {

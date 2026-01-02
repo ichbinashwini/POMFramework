@@ -35,7 +35,6 @@ public class BaseTest {
 	@Parameters({"browser"})
 	@BeforeTest
 	public void setUp(@Optional("edge") String browserName) {
-
 		
 		DriverFactory df = new DriverFactory();
 		prop = df.initProp();
